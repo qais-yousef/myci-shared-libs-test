@@ -3,7 +3,7 @@ def call(src, dst) {
 	case "android":
 		if (env.IPADDRESS && env.PORT) {
 			sh """
-				adb -s ${IPADDRESS}:${PORT} pull ${src} ${dst}
+				adb -s ${IPADDRESS}:${PORT} pull \"${src}\" \"${dst}\"
 			"""
 		} else {
 			error "Missing IPADDRESS and/or PORT info"
