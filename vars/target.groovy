@@ -1,13 +1,13 @@
-def connect_android(ip = env.IPADDRESS, port = env.PORT) {
+def connect_android() {
 	sh '''
-		adb connect ${ip}:${port}
-		adb -s ${ip}:${port} shell "echo temp > /sys/power/wake_lock"
+		adb connect ${IPADDRESS}:${PORT}
+		adb -s ${IPADDRESS}:${PORT} shell "echo temp > /sys/power/wake_lock"
 	'''
 }
 
-def disconnect_android(ip = env.IPADDRESS, port = env.PORT) {
+def disconnect_android() {
 	sh '''
-		adb -s ${ip}:${port} shell "echo temp > /sys/power/wake_unlock"
-		adb disconnect ${ip}:${port}
+		adb -s ${IPADDRESS}:${PORT} shell "echo temp > /sys/power/wake_unlock"
+		adb disconnect ${IPADDRESS}:${PORT}
 	'''
 }
