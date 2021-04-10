@@ -7,8 +7,7 @@ def call() {
 				adb -s ${IPADDRESS}:${PORT} shell "echo temp > /sys/power/wake_lock"
 			'''
 		} else {
-			println("ERROR: Missing IPADDRESS and PORT info")
-			exit(1)
+			error "Missing IPADDRESS and PORT info"
 		}
 		break
 	default:

@@ -7,8 +7,7 @@ def call() {
 				adb disconnect ${IPADDRESS}:${PORT}
 			'''
 		} else {
-			println("ERROR: Missing IPADDRESS and PORT info")
-			exit(1)
+			error "Missing IPADDRESS and PORT info"
 		}
 		break
 	default:
