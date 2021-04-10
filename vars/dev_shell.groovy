@@ -1,7 +1,6 @@
 def call(cmd) {
 	switch (env.MYCI_NODE_TYPE) {
 	case "android":
-		error "Not implemented for this node type: " + env.MYCI_NODE_TYPE
 		if (env.IPADDRESS && env.PORT) {
 			sh """
 				adb -s ${IPADDRESS}:${PORT} shell ${cmd}
